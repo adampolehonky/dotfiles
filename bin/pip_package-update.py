@@ -1,4 +1,4 @@
-#!python3
+#! python3
 # This file will update all outdated Python packages with PIP.
 
 import pip

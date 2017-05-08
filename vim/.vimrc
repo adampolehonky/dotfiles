@@ -39,6 +39,8 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'arielrossanigo/dir-configs-override.vim'
 " close tag
 Plug 'vim-scripts/closetag.vim'
+" better syntax packs
+Plug 'sheerun/vim-polyglot'
 " Rainbo Parenths
 Plug 'kien/rainbow_parentheses.vim'
 " Python scratchpad - Codi
@@ -64,6 +66,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Terminal Vim with 256 colors colorscheme
 Plug 'fisadev/fisa-vim-colorscheme'
+Plug 'joshdick/onedark.vim'
 " Consoles as buffers
 Plug 'rosenfeld/conque-term'
 " Pending tasks list
@@ -135,6 +138,22 @@ if vim_plug_just_installed
     :PlugInstall
 endif
 
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 " ============================================================================
 " Vim settings and mappings
 " You can edit them as you wish
@@ -167,9 +186,6 @@ set hlsearch
 
 " syntax highlight on
 syntax on
-
-" Background color
-set background=dark
 
 " show line numbers
 set nu
@@ -210,24 +226,8 @@ ca w!! w !sudo tee "%"
 nmap ,r :Ack
 nmap ,wr :Ack <cword><CR>
 
-" use 256 colors when possible
-if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
-    let &t_Co = 256
-    colorscheme gruvbox
-else
-    colorscheme gruvbox
-endif
-
-" colors for gvim
-if has('gui_running')
-    colorscheme wombat
-endif
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
+let g:onedark_termcolors=16
+colorscheme onedark
 " when scrolling, keep cursor 3 lines away from screen border
 set scrolloff=3
 
@@ -281,7 +281,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let NERDTreeShowHidden = 1
 
 " Codi scratchpad
-let g:codi#width = 65
+let g:codi#width = 50
 
 " Tasklist ------------------------------
 
@@ -341,7 +341,7 @@ let g:syntastic_style_warning_symbol = '⚠'
 " Python-mode ------------------------------
 
 " don't use linter, we use syntastic for that
-let g:pymode_lint_on_write = 0
+let g:pymode_lint_on_write = 1
 let g:pymode_lint_signs = 0
 " don't fold python code on open
 let g:pymode_folding = 0
@@ -422,7 +422,7 @@ let g:choosewin_overlay_enable = 1
 " Airline ------------------------------
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gruvbox'
+let g:airline_theme='onedark'
 let g:airline#extensions#whitespace#enabled = 0
 
 " to use fancy symbols for airline, uncomment the following lines and use a
