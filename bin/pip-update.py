@@ -1,4 +1,4 @@
-#!/usr/local/bin/ python3
+#!/usr/local/bin/ python
 # pip(python2) && pip3(python3) package updater
 # By Adam Polehonky
 # This file will update all outdated Python packages with pip & pip3.

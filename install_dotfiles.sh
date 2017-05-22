@@ -210,16 +210,6 @@ brew_tap 'caskroom/versions'
 brew_cask_install 'github'
 brew_cask_install 'sublime-text3'
 
-if [ -f "$HOME/.laptop.local" ]; then
-  . "$HOME/.laptop.local"
-fi
-
-append_to_file "$HOME/.rvmrc" 'rvm_auto_reload_flag=2'
-append_to_file "$HOME/.rvm/gemsets/global.gems" 'bundler'
-
-brew_tap 'pivotal/tap'
-brew_install_or_upgrade 'cloudfoundry-cli'
-
 if app_is_installed 'GitHub'; then
   fancy_echo "It looks like you've already configured your GitHub SSH keys."
   fancy_echo "If not, you can do it by signing in to the GitHub app on your Mac."

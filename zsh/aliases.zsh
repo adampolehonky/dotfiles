@@ -130,3 +130,6 @@ alias brewu='brew update  && brew upgrade && brew cleanup && brew prune && brew 
 
 # Shell tool updates
 alias update='apm update && brewu'
+
+# --- Git
+alias gsub='git submodule update --init --recursive, Installing submodules'
