@@ -107,5 +107,5 @@ antigen bundle tmuxinator
 antigen bundle command-not-found
 antigen bundle zsh-autosuggestions
 
-# --- Antigen apply must be at the end
+# --- ANTIGEN APPLY MUST BE AT THE END
 antigen apply
