@@ -1,6 +1,6 @@
 
 # --- Antigen load & ZSH Plugins
-source ~/.dotfiles/antigen/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 source ~/.dotfiles/zsh/aliases.zsh
 source ~/.dotfiles/zsh/auto-completion.zsh
 source ~/.dotfiles/zsh/almostontop.plugin.zsh
@@ -106,6 +106,7 @@ antigen bundle lein
 antigen bundle tmuxinator
 antigen bundle command-not-found
 antigen bundle zsh-autosuggestions
+antigen theme ys
 
 # --- ANTIGEN APPLY MUST BE AT THE END
 antigen apply
