@@ -41,7 +41,7 @@ hosts=(
 zstyle ':completion:*:hosts' hosts $hosts
 
 # do not auto-complete users
-zstyle ':completion:*' users off
+zstyle ':completion:*' user on
 
 # do not use adb autocompletion
 compdef -d adb

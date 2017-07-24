@@ -6,9 +6,9 @@
 platform='unknown'
 unamestr=$(uname)
 if [[ $unamestr == 'Linux' ]]; then
-  platform='linux'
-elif [[ $unamestr == 'Darwin' ]]; then
-  platform='darwin'
+    platform='linux'
+    elif [[ $unamestr == 'Darwin' ]]; then
+    platform='darwin'
 fi
 
 # Moving around
@@ -20,7 +20,7 @@ alias lsg='ll | grep'
 alias l1='ls -1'
 # Alias Editing
 TRAPHUP() {
-  source $~/ZSH/aliases.zsh
+    source $~/ZSH/aliases.zsh
 }
 
 alias ae='vim $~/ZSH/aliases.zsh' #alias edit
@@ -30,7 +30,7 @@ alias ar='source $~/ZSH/aliases.zsh'  #alias reload
 mvim --version > /dev/null 2>&1
 MACVIM_INSTALLED=$?
 if [ $MACVIM_INSTALLED -eq 0 ]; then
-  alias vim="mvim -v"
+    alias vim="mvim -v"
 fi
 
 # mimic vim functions
