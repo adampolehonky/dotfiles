@@ -1,8 +1,10 @@
 # --- Antigen load & ZSH Plugins
 source /usr/local/share/antigen/antigen.zsh
+# source ~/.dotfiles/zsh/statusline.zsh-theme
 source ~/.dotfiles/zsh/aliases.zsh
-source ~/.dotfiles/zsh/src
+source ~/.dotfiles/zsh/src/
 source ~/.dotfiles/zsh/almostontop.plugin.zsh
+source ~/.dotfiles/zsh/zsh-autosuggestions.zsh
 source ~/.dotfiles/zsh/autopair.zsh
 source ~/.fzf/shell/completion.zsh
 source ~/.dotfiles/zsh/reporttime.zsh
@@ -12,16 +14,14 @@ plugins=(… zsh-completions)
   autoload -U compinit
   compinit
 
-# --- Rbenv enable shims and autocompletion
-eval "$(rbenv init -)"
-eval $(/usr/libexec/path_helper -s)
-
 # --- PATH Exports
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.dotfiles/bin:$PATH"
-export PATH="/usr/bin:$PATH"
 export PATH="/usr/sbin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$PATH"
+
+eval $(/usr/libexec/path_helper -s)
 
 # --- Groovy export
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
@@ -63,6 +63,9 @@ codi() {
     Codi ${1:-python}"
 }
 
+# --- PHP 7 cli
+export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+
 # --- Shell integrations
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
@@ -85,7 +88,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # export DOCKER_TLS_VERIFY=1
 # export DOCKER_HOST=tcp://192.168.59.103:2376
 
-
 # --- Antigen bundles
 antigen use oh-my-zsh
 antigen bundle zsh-syntax-highlighting
@@ -96,9 +98,6 @@ antigen bundle git-extras
 antigen bundle pip
 antigen bundle pyenv
 antigen bundle python
-antigen bundle ruby
-antigen bundle gem
-antigen bundle bundler
 antigen bundle httpie
 antigen bundle github
 antigen bundle django
@@ -111,4 +110,3 @@ antigen theme ys
 
 # --- ANTIGEN APPLY MUST BE AT THE END
 antigen apply
-export PATH="/usr/local/bin:$PATH"
