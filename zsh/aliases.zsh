@@ -16,8 +16,9 @@ alias cdb='cd -'
 alias cls='clear;ls'
 
 # show me files matching "ls grep"
-alias lsg='ll | grep'
-alias l1='ls -1'
+alias lsg='exa | grep'
+alias ll='exa -l'
+
 # Alias Editing
 TRAPHUP() {
     source $~/ZSH/aliases.zsh

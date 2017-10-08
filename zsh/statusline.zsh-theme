@@ -21,7 +21,7 @@
 #
 
 # Global vars/constants
-_prompt_statusline_length=0
+_prompt_statusline_length=8
 _prompt_statusline_git=''
 _prompt_statusline_bg=(7 15 7 '') # foreground, background, middle, current
 _prompt_statusline_symbols=(   )
