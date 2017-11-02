@@ -7,7 +7,7 @@ POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 
 # source ~/.dotfiles/zsh/statusline.zsh-theme
 source ~/.dotfiles/zsh/aliases.zsh
-source ~/.dotfiles/zsh/src
+source ~/.dotfiles/zsh/src/
 source ~/.dotfiles/zsh/almostontop.plugin.zsh
 source ~/.dotfiles/zsh/zsh-autosuggestions.zsh
 source ~/.dotfiles/zsh/autopair.zsh
@@ -102,7 +102,7 @@ antigen bundle git
 antigen bundle git-prompt
 antigen bundle git-extras
 antigen bundle pip
-antigen bundle pyenv
+antigen bundle pipenv
 antigen bundle python
 antigen bundle httpie
 antigen bundle github
