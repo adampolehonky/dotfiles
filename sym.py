@@ -2,7 +2,7 @@ import os
 import errno
 
 
-def force_symlink(file1, file2):
+def createSymlink(file1, file2):
     try:
         os.symlink(file1, file2)
     except OSError, e:
