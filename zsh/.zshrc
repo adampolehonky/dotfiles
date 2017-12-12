@@ -2,18 +2,22 @@
 
 source ~/.dotfiles/zsh/antigen.zsh
 
-POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+# --- PATH Exports
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="/usr/sbin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$PATH"
+export HOMEBREW_GITHUB_API_TOKEN="31ead0341afce51732015bff94b4106a0b1853b9"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # source ~/.dotfiles/zsh/statusline.zsh-theme
-source ~/.dotfiles/zsh/aliases.zsh
-source ~/.dotfiles/zsh/src/
 source ~/.dotfiles/zsh/almostontop.plugin.zsh
+source ~/.dotfiles/zsh/aliases.zsh
 source ~/.dotfiles/zsh/zsh-autosuggestions.zsh
 source ~/.dotfiles/zsh/autopair.zsh
 source ~/.fzf/shell/completion.zsh
 source ~/.dotfiles/zsh/reporttime.zsh
-export HOMEBREW_GITHUB_API_TOKEN="31ead0341afce51732015bff94b4106a0b1853b9"
 
 # zsh completions
 autoload -Uz compinit && compinit
@@ -21,16 +25,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' matcher-list +'l:|=* r:|=*'
 
 plugins=(zsh-completions)
-eval $(/usr/libexec/path_helper -s) 
+eval $(/usr/libexec/path_helper -s)
 eval "$(thefuck --alias)"
-
-
-# --- PATH Exports
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/sbin:$PATH"
-export PATH="/usr/bin:$PATH"
-export PATH="$HOME/.dotfiles/bin:$PATH"
 
 # --- Groovy export
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
@@ -47,8 +43,8 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # --- Add colors to Terminal
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # --- fzf Fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -112,9 +108,7 @@ antigen bundle lein
 antigen bundle tmuxinator
 antigen bundle command-not-found
 antigen bundle zsh-autosuggestions
-#antigen theme ys
-antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen theme ys
 
 # --- ANTIGEN APPLY MUST BE AT THE END
 antigen apply
-export PATH="/usr/local/bin:$PATH"
