@@ -8,7 +8,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/sbin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
-export HOMEBREW_GITHUB_API_TOKEN="31ead0341afce51732015bff94b4106a0b1853b9"
+# export HOMEBREW_GITHUB_API_TOKEN=""
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # source ~/.dotfiles/zsh/statusline.zsh-theme
@@ -29,7 +29,7 @@ eval $(/usr/libexec/path_helper -s)
 eval "$(thefuck --alias)"
 
 # --- Groovy export
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
+# export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # --- Android SDK
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
@@ -66,7 +66,7 @@ codi() {
 }
 
 # --- PHP 7 cli
-export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
 
 # --- Shell integrations
 sudo-command-line() {
