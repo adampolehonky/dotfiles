@@ -10,6 +10,7 @@ export PATH="/usr/sbin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
 # export HOMEBREW_GITHUB_API_TOKEN=""
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
 
 # source ~/.dotfiles/zsh/statusline.zsh-theme
 source ~/.dotfiles/zsh/almostontop.plugin.zsh
@@ -108,7 +109,7 @@ antigen bundle lein
 antigen bundle tmuxinator
 antigen bundle command-not-found
 antigen bundle zsh-autosuggestions
-antigen theme ys
+antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 
 # --- ANTIGEN APPLY MUST BE AT THE END
 antigen apply
