@@ -1,4 +1,6 @@
 # --- Antigen load & ZSH Plugins
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
 
 source ~/.dotfiles/zsh/antigen.zsh
 
@@ -8,22 +10,25 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/sbin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
-# export HOMEBREW_GITHUB_API_TOKEN=""
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
+# export HOMEBREW_GITHUB_API_TOKEN=""
 
 # source ~/.dotfiles/zsh/statusline.zsh-theme
 source ~/.dotfiles/zsh/almostontop.plugin.zsh
 source ~/.dotfiles/zsh/aliases.zsh
 source ~/.dotfiles/zsh/zsh-autosuggestions.zsh
 source ~/.dotfiles/zsh/autopair.zsh
-source ~/.fzf/shell/completion.zsh
 source ~/.dotfiles/zsh/reporttime.zsh
+
+# Python3 Virtualenv
+alias py3venv='source $HOME/Projects/python/pydevenv/python3env/bin/activate'
 
 # zsh completions
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' matcher-list +'l:|=* r:|=*'
+zstyle ':completion:*' menu select
 
 plugins=(zsh-completions)
 eval $(/usr/libexec/path_helper -s)
@@ -43,18 +48,12 @@ export PATH=$PATH:$GOPATH/bin
 # --- Rust exports
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# --- Add colors to Terminal
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-# --- fzf Fuzzy search
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # --- Swiftenv exports
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # --- VIM
 export GIT_EDITOR="vim"
+
 # --- Codi (Python) Usage: codi [filetype] [filename]
 codi() {
     vim $2 -c \
@@ -86,6 +85,10 @@ bindkey "\e\e" sudo-command-line
 # --- iTerm 2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# --- Add colors to Terminal
+# BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 # --- docker-osx-dev
 # export DOCKER_CERT_PATH=/Users/adampolehonky/.boot2docker/certs/boot2docker-vm
 # export DOCKER_TLS_VERIFY=1
@@ -109,7 +112,11 @@ antigen bundle lein
 antigen bundle tmuxinator
 antigen bundle command-not-found
 antigen bundle zsh-autosuggestions
-antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+antigen theme https://github.com/denysdovhan/spaceship-prompt
 
 # --- ANTIGEN APPLY MUST BE AT THE END
 antigen apply
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
