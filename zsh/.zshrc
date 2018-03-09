@@ -1,8 +1,8 @@
 # --- Antigen load & ZSH Plugins
+source ~/.dotfiles/antigen.zsh
+
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-
-source ~/.dotfiles/zsh/antigen.zsh
 
 # --- PATH Exports
 export PATH="/usr/local/bin:$PATH"
@@ -34,9 +34,6 @@ zstyle ':completion:*' menu select
 plugins=(zsh-completions)
 eval $(/usr/libexec/path_helper -s)
 eval "$(thefuck --alias)"
-
-# --- Groovy export
-# export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # --- Android SDK
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
@@ -89,20 +86,17 @@ bindkey "\e\e" sudo-command-line
 # --- iTerm 2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# --- docker-osx-dev
-# export DOCKER_CERT_PATH=/Users/adampolehonky/.boot2docker/certs/boot2docker-vm
-# export DOCKER_TLS_VERIFY=1
-# export DOCKER_HOST=tcp://192.168.59.103:2376
-
 # --- Antigen bundles
 antigen use oh-my-zsh
-antigen bundle zsh-syntax-highlighting
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
 antigen bundle gulp
 antigen bundle git
 antigen bundle git-prompt
 antigen bundle git-extras
 antigen bundle pip
-antigen bundle pipenv
 antigen bundle python
 antigen bundle httpie
 antigen bundle github
@@ -118,5 +112,5 @@ antigen theme https://github.com/denysdovhan/spaceship-prompt
 antigen apply
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+#autoload -U promptinit; promptinit
+#prompt spaceship
