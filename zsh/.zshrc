@@ -10,8 +10,9 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/sbin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/.composer/vendor/bin:$PATH
+export PATH="$HOME/Dropbox/Projects/flutter/bin:$PATH"
+# export PATH=$HOME/.nodebrew/current/bin:$PATH
+# export PATH=$HOME/.composer/vendor/bin:$PATH
 # export HOMEBREW_GITHUB_API_TOKEN=""
 
 # source ~/.dotfiles/zsh/statusline.zsh-theme
@@ -41,9 +42,12 @@ eval "$(thefuck --alias)"
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 
 # --- GOLang Workspace
-export PATH=$PATH:/usr/local/go/bin/go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH="~/Desktop/golang"
+export PATH="$PATH:$GOROOT/bin"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOPATH"
+export GOROOT="/usr/local/opt/go/libexec"
+
 
 # --- Rust exports
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -84,10 +88,6 @@ bindkey "\e\e" sudo-command-line
 
 # --- iTerm 2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# --- Add colors to Terminal
-# BASE16_SHELL=$HOME/.config/base16-shell/
-# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # --- docker-osx-dev
 # export DOCKER_CERT_PATH=/Users/adampolehonky/.boot2docker/certs/boot2docker-vm
