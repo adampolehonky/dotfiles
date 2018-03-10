@@ -89,23 +89,22 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # --- Antigen bundles
 antigen use oh-my-zsh
 
-# Syntax highlighting bundle.
+# Syntax highlighting bundle
 antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen bundle gulp
+antigen bundle pip
+antigen bundle httpie
+antigen bundle zsh-autosuggestions
 antigen bundle git
 antigen bundle git-prompt
 antigen bundle git-extras
-antigen bundle pip
 antigen bundle python
-antigen bundle httpie
-antigen bundle github
 antigen bundle django
 antigen bundle brew
 antigen bundle lein
 antigen bundle tmuxinator
 antigen bundle command-not-found
-antigen bundle zsh-autosuggestions
+
+# Antigen theme
 antigen theme https://github.com/denysdovhan/spaceship-prompt
 
 # --- ANTIGEN APPLY MUST BE AT THE END
